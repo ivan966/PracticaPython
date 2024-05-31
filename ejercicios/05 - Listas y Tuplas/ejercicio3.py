@@ -1,17 +1,16 @@
 """
-Escribir un programa que almacene las asignaturas de un curso
-(por ejemplo Matemáticas, Física, Química, Historia y Lengua) en una lista,
- pregunte al usuario la nota que ha sacado en cada asignatura, y después las
- muestre por pantalla con el mensaje En <asignatura> has sacado <nota> donde
- <asignatura> es cada una des las asignaturas de la lista y <nota> cada una de
- las correspondientes notas introducidas por el usuario.
+Escribir un programa que almacene las asignaturas de un curso (por ejemplo Matemáticas,
+Física, Química, Historia y Lengua) en una lista, pregunte al usuario la nota que ha sacado en
+ cada asignatura, y después las muestre por pantalla con el mensaje En <asignatura> has sacado
+ <nota> donde <asignatura> es cada una des las asignaturas de la lista y <nota> cada una de las
+ correspondientes notas introducidas por el usuario.
 """
-asignaturas = ["Matematicas","Fisica","Quimica","Historia","Lengua"]
-notas = []
 
+asignaturas = ['Matematicas','Fisica','Quimica','Historia','Lengua']
+notas = []
 for i in range(len(asignaturas)):
-    nota = int(input(f"Ingrese cuanto saco en {asignaturas[i]}\n"))
+    nota = int(input(f"que nota saco en {asignaturas[i]}?\n"))
     notas.append(nota)
 
 for i in range(len(asignaturas)):
-    print(f"Su nota en {asignaturas[i]} es de: {notas[i]}")
+    print(f"Su nota en {asignaturas[i]} es: {notas[i]}")

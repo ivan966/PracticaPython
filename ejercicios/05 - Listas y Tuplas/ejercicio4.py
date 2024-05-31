@@ -1,15 +1,14 @@
 """
-Escribir un programa que pregunte al usuario los números
-ganadores de la lotería primitiva, los almacene en una lista
-y los muestre por pantalla ordenados de menor a mayor.
+Escribir un programa que pregunte al usuario los números ganadores de la lotería primitiva, los
+almacene en una lista y los muestre por pantalla ordenados de menor a mayor.
 """
+"""numerosGanadores = []
 
-numerosGanadores = []
+numero = input("ingrese los numeros ganadores de la loteria")"""
 
-while True:
-    numero = int(input("Ingrese los numeros Ganadores o 0 para terminar\n"))
-    if(numero == 0):
-        break
-    numerosGanadores.append(numero)
-numerosGanadores.sort()
-print(numerosGanadores)
+hhoras = input('horas trabajadas')
+hpagas = input('cuanto te pagan')
+
+total = hhoras*hpagas
+
+print(total)

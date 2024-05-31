@@ -18,7 +18,13 @@ frutas = {
 'naranja' : 0.70,
 }
 
-frutaU = input("que fruta esta buscando? ")
-peso = int(input("cuantos kilos? "))
+frutaU = input('que fruta esta buscando? ')
 
-print(frutas.get(frutaU,'no hay'))
+
+
+
+if frutaU in frutas:
+    peso = float(input('cuantos kilos? '))
+    print(f'el total es: ${round(frutas[frutaU]*peso,2)}')
+else:
+    print(f'No se encuentra {frutaU} en el listado')

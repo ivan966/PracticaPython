@@ -10,5 +10,3 @@ divisas = {'Euro':'€', 'Dolar':'$','Yen':'¥'}
 divUser = (input("Que divisa anda buscando?\n"))
 divUser = divUser.capitalize()
 print(divisas[divUser])
-
-
