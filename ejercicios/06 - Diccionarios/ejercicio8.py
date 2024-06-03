@@ -6,19 +6,28 @@ diccionario con las palabras y sus traducciones. Después pedirá una frase en e
 y utilizará el diccionario para traducirla palabra a palabra. Si una palabra no está
 en el diccionario debe dejarla sin traducir.
 """
+#definimos el diccionario
 diccionario = dict()
-
-palabras = input('Ingrase la plabara en español y separa por : ingrese su traduccion en ingles')
-
-palabra_list = palabras.split(',')
-for elemento in palabra_list:
+#el usuario ingresa la lista
+palabras = input('Ingrase la plabara en español y separa por : ingrese su traduccion en ingles\n')
+#todas las frases en minusculas
+palabras = palabras.lower()
+#separamos toda la cadena te texto donde esta la coma y lo hacemos una lista
+palabraLista = palabras.split(',')
+#recorremos la lista y separamos las palabras donde estan los : (dos puntos)
+for elemento in palabraLista:
+    #ponemos cada valor en las 2 siguientes variables
     clave,valor = elemento.split(':')
+    #agregamos los valores de las variables al diccionario
     diccionario[clave]=valor
-
+#el usuario ingresa la frase a traducir
 frase = input("Ingrese una frase para traducir\n")
-otraFrase = frase.split(' ')
-print(otraFrase)
-for palabra in otraFrase:
-    print(diccionario.get(otraFrase))
+#toda la frase en minusculas
+frase = frase.lower()
+#dividimos la frase en una lista
+fraseLista = frase.split(' ')
 
-
+fraseFinal = ''
+for frase in fraseLista:
+    fraseFinal += diccionario.get(frase, frase) + ' '
+print(fraseFinal)
