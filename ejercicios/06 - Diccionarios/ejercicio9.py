@@ -9,14 +9,13 @@ Después de cada operación el programa debe mostrar por pantalla la cantidad co
 y la cantidad pendiente de cobro.
 """
 
-#facturas = dict()
-facturas = {
-    '0001' : 45451,
-}
+facturas = dict()
+
 valorFinal = 0
+totalDeuda = 0
 print('Bienvenido al softaware de Gestion de Facturas\n¿que desea hacer?')
 while True:
-    control = input((' 1: Ingresar una nueva Factura\n 2: Pagar una Factura Existente\n 3: Terminar\n'))
+    control = input((' 1: Ingresar una nueva Factura\n 2: Pagar una Factura Existente\n 3: Terminar\n 4: Controlar facturas\n'))
     #Ingreso de nuevas facturas
     if control == '1':
         clave = input('Ingrese el cod de la factura: ')
@@ -24,7 +23,7 @@ while True:
             print('Codigo ya existente\n\n')
             continue
         else:
-            valor = input('Ingrese el precio de la Factura')
+            valor = float(input('Ingrese el precio de la Factura: '))
             facturas[clave] = valor
             continue
     #Pagar la factura
@@ -33,14 +32,25 @@ while True:
         if codigo in facturas:
             cont = input(f'El valor a pagar es de {facturas.get(codigo)} desea continuar?\n').lower()
             if cont == 'si':
-                valorFinal += int(facturas.get(codigo))
+                valorFinal += facturas.get(codigo)
+                del facturas[codigo]
+                print(facturas)
                 continue
             else:
                 continue
     elif control == '3':
         break
+    #ver facturas
+    elif control == '4':
+        print(facturas)
     else:
         print('Ingrese un numero Valido')
+
+for palabra in facturas:
+    totalDeuda += facturas[palabra]
+
+print(f'te queda un total de {len(facturas)} facturas por pagar con un monto de: {totalDeuda}$')
+print(f'el total pagado es de: {valorFinal}$')
 
 
 
