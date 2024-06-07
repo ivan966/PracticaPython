@@ -14,12 +14,42 @@ Mostrar lista de todos los clientes de la base datos con su NIF y nombre.
 Mostrar la lista de clientes preferentes de la base de datos con su NIF y nombre.
 Terminar el programa.
 """
-clientes = dict()
+clientes ={
+    '0001':{
+        'nombre' : 'ivan',
+        'direccion' : 'adolfo carranza',
+        'telefono' : '45457842',
+        'correo' : 'ivanñlas',
+        'preferente' : 'S'
+    },
+    '0002':{
+        'nombre' : 'martin',
+        'direccion' : 'alguna direccion',
+        'telefono' : '842516',
+        'correo' : 'martincito',
+        'preferente' : 'N'
+    },
+    '0003':{
+        'nombre' : 'fernanda',
+        'direccion' : 'su calle',
+        'telefono' : '74595',
+        'correo' : 'fernandita',
+        'preferente' : 'S'
+    },
+    '0004':{
+        'nombre' : 'marcos',
+        'direccion' : 'la matanza',
+        'telefono' : '787872102',
+        'correo' : 'marcostraba',
+        'preferente' : 'N'
+    }
+}
+#clientes = dict()
 control = ''
-nif = 1
 while control != '6':
     control = input('Seleccione una de las siguientes opciones:\n 1: Añadir a un cliente\n 2: Eliminar a un cliente\n 3: Mostrar Cliente\n 4: Listar todos los Clientes\n 5: Listar Clientes Preferentes\n 6: Terminar\n')
     if control == '1':
+        nif = input('Ingrese nif: ')
         nombre = input('Ingrese el Nombre: ')
         direccion = input('Ingrese la Direccion: ')
         telefono = input('Ingrese el Telefono: ')
@@ -33,16 +63,17 @@ while control != '6':
             'preferente': vip=='S'}
         clientes[nif]= cliente
     elif control == '2':
-        nifBorrar = int(input('ingrese el codigo Nif que desea borrar: '))
-        for nif in clientes:
-            if nif == nifBorrar:
-                del cliente[nif]
-                print('El cliente a sido eliminado')
-            else:
-                print('Nif incorrecto')
+        nifBorrar = input('ingrese el codigo Nif que desea borrar: ')
+        if nifBorrar in clientes:
+            del clientes[nifBorrar]
+        else:
+            print('El Cliente no existe')
     elif control == '3':
-        clienteMostrar = int(input('Ingrese el codigo Nif del cliente a consultar: '))
-        print(clientes.get(clienteMostrar,'No se encontro el Cliente'))
+        clienteMostrar = input('Ingrese el codigo Nif del cliente a consultar: ')
+        if clienteMostrar in clientes:
+            print(clienteMostrar)
     elif control == '4':
         print(clientes)
-
+    elif control == '5':
+        for cliente in clientes:
+            print(clientes)
